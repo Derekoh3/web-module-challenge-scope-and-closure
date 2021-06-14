@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  Counter1 is a nested function when counter2 is not
   2. Which of the two uses a closure? How can you tell?
-  
+  Counter2 is a closure since the function has access to its parents scope even after the parent function has been closed 
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     You would use counter1 when you want everything to be assigned in a function and not reassigned later on in the code and counter2 can be used when you will redeclare or reassign a variable later on. 
 */
 
 // counter1 code
@@ -62,10 +63,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  let score = Math.floor(math.random() * 3)
+  return score;
 }
-
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -81,8 +82,16 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, played){
+  let game = {
+    Home:0,
+    Away:0,
+  }
+  for(let i = 0; i < played; i++){
+    game.Home = game.Home + inning();
+    game.Away = game.Away + inning();
+  }
+  return game;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,7 +99,7 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
+function getInningScore() {
   /*Your Code Here */
 }
 
@@ -136,8 +145,12 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(played) {
+  let score = []
+  let Home = 0;
+  let Away = 0;
+  for (let i = 0; i < played; i++){
+
 }
 
 
